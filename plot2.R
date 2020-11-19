@@ -24,10 +24,11 @@ df <- read.table(dname,
 # select the data from 2007-02-01 and 2007-02-02
 df1 <- df[(df$Date=="1/2/2007" | df$Date=="2/2/2007"),]
 
+
 # get weekdays for x-label
-d1 <- weekdays(as.Date(df1$Date[1]))
-d2 <- weekdays(as.Date(df1$Date[length(df1$Date)]))
-d3 <- weekdays(as.Date(df1$Date[length(df1$Date)])+1)
+d1 <- weekdays(as.Date(df1$Date[1], format = "%d/%m/%Y"))
+d2 <- weekdays(as.Date(df1$Date[length(df1$Date)],format = "%d/%m/%Y"))
+d3 <- weekdays(as.Date(df1$Date[length(df1$Date)],format = "%d/%m/%Y")+1)
 
 # plot and export to png
 png(filename=pname, width = psize, height = psize, units = "px")
